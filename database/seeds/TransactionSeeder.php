@@ -13,6 +13,8 @@ class TransactionSeeder extends Seeder
     public function run()
     {
       Transaction::truncate();
+
+      Transaction::flushEventListeners();
       
       $quantity = 1000;
 

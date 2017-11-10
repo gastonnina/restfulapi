@@ -14,6 +14,8 @@ class ProductSeeder extends Seeder
     public function run()
     {
       Product::truncate();
+
+      Product::flushEventListeners();
       
       $quantity = 1000;
 
