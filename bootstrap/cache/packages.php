@@ -24,4 +24,11 @@
       'Fractal' => 'Spatie\\Fractal\\FractalFacade',
     ),
   ),
+  'laravel/passport' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Passport\\PassportServiceProvider',
+    ),
+  ),
 );
