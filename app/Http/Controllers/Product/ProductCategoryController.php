@@ -12,6 +12,11 @@ class ProductCategoryController extends ApiController
   public function __construct()
   {
     $this->middleware('client.credentials')->only(['index']);
+    $this->middleware('auth:api')->except(['index']);
+    $this->middleware('scope:manage-products')->except(['index']);
+
+    $this->middleware('can:add-category,product')->except(['update']);
+    $this->middleware('can:delete-category,product')->except(['destroy']);
   }
     /**
      * Display a listing of the resource.

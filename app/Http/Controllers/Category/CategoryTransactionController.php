@@ -8,6 +8,10 @@ use App\Http\Controllers\ApiController;
 
 class CategoryTransactionController extends ApiController
 {
+  public function __construct()
+  {
+    parent::__construct();
+  }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,8 @@ class CategoryTransactionController extends ApiController
      */
     public function index(Category $category)
     {
+      $this->allowedAdminAction();
+
       $transactions = $category->products()
         ->whereHas('transactions')
         ->with('transactions')

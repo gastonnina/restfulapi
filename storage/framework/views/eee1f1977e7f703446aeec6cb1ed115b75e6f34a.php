@@ -37,7 +37,11 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <?php if(Auth::check()): ?>
+                            <li><a href="<?php echo e(route('personal-tokens')); ?>">My Tokens</a></li>
+                            <li><a href="<?php echo e(route('personal-clients')); ?>">My Clients</a></li>
+                            <li><a href="<?php echo e(route('authorized-clients')); ?>">Authorized Clients</a></li>
+                        <?php endif; ?>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

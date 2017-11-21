@@ -8,6 +8,13 @@ use App\Http\Controllers\ApiController;
 
 class TransactionsController extends ApiController
 {
+  public function __construct()
+  {
+    parent::__construct();
+
+    $this->middleware('scope:read-general')->only(['show']);
+    $this->middleware('can:view,transaction')->only(['show']);
+  }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +22,8 @@ class TransactionsController extends ApiController
      */
     public function index()
     {
+      $this->allowedAdminAction();
+
       $transactions = Transaction::all();
 
       return $this->showAll($transactions);
